@@ -1,4 +1,4 @@
-'use strict'
+'use strict' // Modo estrito do JS tornando ele mais restritivo 
 
 const openModal = () => document.getElementById('modal')
     .classList.add('active')
@@ -7,7 +7,7 @@ const closeModal = () => {
     clearFields()
     document.getElementById('modal').classList.remove('active')
 }
-
+//O classlist retorna uma lista de classes do objeto, os metodo add, e remove adiciona e remove objetos respectivamente.
 
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_client')) ?? []
 const setLocalStorage = (dbClient) => localStorage.setItem("db_client", JSON.stringify(dbClient))
@@ -45,6 +45,7 @@ const clearFields = () => {
     document.getElementById('nome').dataset.index = 'new'
     document.querySelector(".modal-header>h2").textContent  = 'Novo Cliente'
 }
+//A propriedade dataset é usada para armazenar e modificar dados personalizados
 
 const saveClient = () => {
     if (isValidFields()) {
@@ -84,7 +85,7 @@ const createRow = (client, index) => {
 
 const clearTable = () => {
     const rows = document.querySelectorAll('#tableClient>tbody tr')
-    rows.forEach(row => row.parentNode.removeChild(row))
+    rows.forEach(row => row.parentNode.removeChild(row))//->Vai acessar o elemento pai e remove a linha. 
 }
 
 const updateTable = () => {
@@ -102,18 +103,19 @@ const fillFields = (client) => {
 }
 
 const editClient = (index) => {
-    const client = readClient()[index]
+    const client = readClient()[index] // ele le o cliente e acessa o index do que é retorna pela leitura
     client.index = index
     fillFields(client)
     document.querySelector(".modal-header>h2").textContent  = `Editando ${client.nome}`
     openModal()
 }
-
+//Essa função editi se refere a o botão da linha 79
 const editDelete = (event) => {
+    //Verifica se o tipo de elemento que acionou o evento é um botão 
     if (event.target.type == 'button') {
-
+        //Vai dividir o id do botão em duas partes com caractere - e atribui aas variável action e index
         const [action, index] = event.target.id.split('-')
-
+        //Verifica se o botão e do tipo edit
         if (action == 'edit') {
             editClient(index)
         } else {

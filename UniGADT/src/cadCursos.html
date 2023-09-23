@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workspace UniGADT</title>
 
+    <style>
+        #tableCurso > tbody{
+            text-align: center;
+        }
+        #tableCurso>tbody>tr>td:last-child{
+            margin:50px;
+            width: 5%;
+        }
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <!--<script src="script.js" defer></script>-->
 </head>
 <body>
     <header>
-        <img id="logo" src="/img/Logo-UniSales_Horizontal.png" alt="logo">
+        <!--        <img id="logo" src="/img/Logo-UniSales_Horizontal.png" alt="logo">-->
         <h1>Cursos <i class="bi bi-award-fill"></i></h1>
     </header>
     <div class="menu-bar">
@@ -23,16 +32,13 @@
         <a class="btn-bar"  href="cadDesafios.html" title="Desafios"><i class="bi bi-list-check"></i></a>
     </div>
     <div class="container">
-        <button class="btn-form-cad" type="button" class="button blue mobile" id="cadastrarCliente">CADASTRAR</button>
-
-        <table id="tableClient" class="tabela" class="records">
+        <button class="btn-form-cad" type="button" class="button blue mobile" id="cadastrarCurso">CADASTRAR</button>
+        <table id="tableCurso" class="tabela" class="records">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Celular</th>
-                    <th>Cidade</th>
-                    <th>Ação</th>
+                    <th>Nome do Curso</th>
+                    <th>Turno</th>
+                    <th>Periodo</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,15 +50,14 @@
         <div class="modal" id="modal">
             <div class="modal-content">
                 <header class="modal-header">
-                    <h2>Novo Cliente</h2>
+                    <h2>Novo Curso</h2>
                     <span class="modal-close" id="modalClose">&#10006;</span>
                 </header>
                 <form id="form" class="modal-form">
-                    <input type="text" id="nome" data-index="new" class="modal-field" placeholder="Nome do Cliente"
+                    <input type="text" id="curso" data-index="new" class="modal-field" placeholder="Curso"
                         required>
-                    <input type="email" id="email" class="modal-field" placeholder="e-mail do Cliente" required>
-                    <input type="text" id="celular" class="modal-field" placeholder="Celular do Cliente" required>
-                    <input type="text" id="cidade" class="modal-field" placeholder="Cidade do Cliente" required>
+                    <input type="text" id="turno" class="modal-field" placeholder="turno" required>
+                    <input type="number" id="periodo" class="modal-field" placeholder="Periodo" required>
                 </form>
                 <footer class="modal-footer">
                     <button class="btn-action" id="salvar" >Salvar</button>
@@ -66,9 +71,11 @@
     <footer>
         <div>
             Desenvolvido por © 2023 Victory Bay 
-            <img src="/img/logo_vitória_line.png" alt="Vitória" width="100">
+            <!--            <img src="/img/logo_vitória_line.png" alt="Vitória" width="100">-->
         </div>
         <a href="#">Sobre o Trabalho</a>
     </footer>
+    <!----->
+    <script src="assets/cadCurso.js"></script>
 </body>
 </html>
